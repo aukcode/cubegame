@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mitt awesomesauce-spill!</title>
+
+	<style>
+	canvas {
+		margin: auto;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+	</style>
+
+
+</head>
+<body>
+<script>
+	function loadImage(file) {
+		var image = new Image();
+		image.src = file;
+		return image;
+	}
+
+	function init() {
+		blockSize = 32;
+		gridWidth = 30; gridHeight = 20;
+		canvas = document.createElement("canvas");
+		canvas.width = gridWidth * blockSize; canvas.height = gridHeight * blockSize;
+		context = canvas.getContext("2d");
+		document.body.appendChild(canvas);
+
+		imageBackground = loadImage("background 1.png");
+	}
+
+	function update(){
+		draw();
+
+		window.requestAnimationFrame(update);
+	}
+
+	function draw(); {
+		context.drawImage(imageBackground, 0, 0);
+	}
+
+init();
+update();
+
+
+</script>
+
+
+</body>
+</html>
